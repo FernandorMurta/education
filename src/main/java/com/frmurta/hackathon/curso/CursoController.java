@@ -35,7 +35,7 @@ public class CursoController extends AbstractCtrl<Curso> {
     @PostMapping(path = "/create")
     public ResponseEntity createCurso(@RequestBody Curso curso){
         try {
-            return ControllerUtils.sendOk(service.createCurso(curso));
+            return ControllerUtils.sendOk(service.createCurso(curso).getId());
         } catch (Exception e){
             return ControllerUtils.sendBadRequest(e.getMessage());
         }

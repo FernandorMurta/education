@@ -34,16 +34,19 @@ public class Curso extends AbstractEntity {
 
     private Boolean publicado;
 
+    private Boolean vestibular;
+
     @OneToMany(mappedBy = "curso")
     private List<MateriaCurso> materiaCursos;
 
 
     @Builder
-    public Curso(Long id, Boolean ativo, String name, Faculdade faculdade, AreaAtuacao areaAtuacao, Boolean publicado){
+    public Curso(Long id, Boolean ativo, String name, Faculdade faculdade, AreaAtuacao areaAtuacao, Boolean publicado, Boolean vestibular){
         super(id, ativo);
         this.name = name;
         this.faculdade = faculdade;
         this.areaAtuacao = areaAtuacao;
         this.publicado = publicado;
+        this.vestibular = vestibular;
     }
 }

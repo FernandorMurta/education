@@ -35,7 +35,7 @@ public class FaculdadeController extends AbstractCtrl<Faculdade> {
         }
     }
 
-    @GetMapping(path = "/login")
+    @PostMapping(path = "/login")
     public ResponseEntity makeLogin(@RequestBody Faculdade faculdade){
         try {
             return ControllerUtils.sendOk(service.makeLogin(faculdade));

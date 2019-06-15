@@ -17,4 +17,6 @@ public interface CursoService extends IBaseService<Curso> {
 
     void publishCurso(Long id);
 
+    void vestibularCurso(Long id);
+
 }

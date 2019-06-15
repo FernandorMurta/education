@@ -61,6 +61,16 @@ public class CursoController extends AbstractCtrl<Curso> {
         }
     }
 
+    @PutMapping(path = "/vestibular/{id}")
+    public ResponseEntity vestibularCurso(@PathVariable(name = "id")Long id){
+        try{
+            service.vestibularCurso(id);
+            return ControllerUtils.sendOk(true);
+        } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
+
     @GetMapping
     public ResponseEntity findByParams(@RequestParam Optional<String> name,
                                        @RequestParam Optional<Long> idFaculdade,

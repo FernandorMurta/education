@@ -51,8 +51,19 @@ public class CursoServiceImpl extends AbstractService<Curso> implements CursoSer
             throw new CustomException("Curso nao encontrado");
         }
 
-        cursoParaPublicar.setPublicado(true);
+        cursoParaPublicar.setPublicado(!cursoParaPublicar.getPublicado());
         repository.save(cursoParaPublicar);
+    }
+
+    public void vestibularCurso(Long id){
+        Curso cursoParaVestibular = repository.getOne(id);
+
+        if(cursoParaVestibular == null){
+            throw new CustomException("Curso nao encontrado");
+        }
+
+        cursoParaVestibular.setVestibular(!cursoParaVestibular.getVestibular());
+        repository.save(cursoParaVestibular);
     }
 
     public Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable){

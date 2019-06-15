@@ -43,4 +43,23 @@ public class UsuarioController extends AbstractCtrl<Usuario> {
             return ControllerUtils.sendBadRequest(e.getMessage());
         }
     }
+
+    @GetMapping(path = "/media/{id}")
+    public ResponseEntity getMedia(@PathVariable(name = "id") Long id){
+        try {
+            return ControllerUtils.sendOk(service.getMedia(id));
+        } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
+
+    @GetMapping(path = "media/{idCurso}/{idUsuario}")
+    public ResponseEntity getMediaForCurso(@PathVariable(name = "idCurso") Long idCurso,
+                                           @PathVariable(name = "idUsuario") Long idUsuario){
+        try {
+            return ControllerUtils.sendOk(service.getMediaForCurso(idCurso, idUsuario));
+        } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
 }

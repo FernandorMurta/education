@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 public class MateriaUsuario extends AbstractEntity {
 
     @NotNull
-    private BigDecimal peso;
+    private BigDecimal valor;
     @NotNull
     @ManyToOne
     private Usuario usuario;
@@ -31,10 +31,10 @@ public class MateriaUsuario extends AbstractEntity {
 
 
     @Builder
-    public MateriaUsuario(Long id, Boolean ativo, Usuario usuario, Materia materia, BigDecimal peso){
+    public MateriaUsuario(Long id, Boolean ativo, Usuario usuario, Materia materia, BigDecimal valor){
         super(id, ativo);
         this.usuario = usuario;
         this.materia = materia;
-        this.peso = peso;
+        this.valor = valor;
     }
 }

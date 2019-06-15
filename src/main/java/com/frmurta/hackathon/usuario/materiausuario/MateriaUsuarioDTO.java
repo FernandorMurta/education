@@ -17,20 +17,20 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class MateriaUsuarioDTO extends AbstractDTO {
 
-    public Double peso;
+    public Double valor;
 
     @Builder
     @QueryProjection
-    public MateriaUsuarioDTO(Long id, Boolean ativo, BigDecimal peso) {
+    public MateriaUsuarioDTO(Long id, Boolean ativo, BigDecimal valor) {
         super(id, ativo);
-        this.peso = peso.doubleValue();
+        this.valor = valor.doubleValue();
     }
 
     public static ConstructorExpression<MateriaUsuarioDTO> constructorExpression(QMateriaUsuario materiaUsuario) {
         return new QMateriaUsuarioDTO(
                 materiaUsuario.id,
                 materiaUsuario.ativo,
-                materiaUsuario.peso
+                materiaUsuario.valor
         );
     }
 }

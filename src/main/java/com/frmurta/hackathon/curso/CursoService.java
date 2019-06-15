@@ -16,4 +16,5 @@ public interface CursoService extends IBaseService<Curso> {
     Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable);
 
     void publishCurso(Long id);
+
 }

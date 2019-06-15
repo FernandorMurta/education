@@ -22,6 +22,8 @@ public class Usuario extends AbstractEntity {
     @NotNull
     private String password;
 
+
+
     @Builder
     public Usuario(Long id, Boolean ativo, String name, String email, String password){
         super(id, ativo);

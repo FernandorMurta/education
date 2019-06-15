@@ -9,4 +9,8 @@ public interface UsuarioService extends IBaseService<Usuario> {
 
     Usuario makeLogin(Usuario usuario);
 
+    UsuarioDTO getMedia(Long id);
+
+    UsuarioDTO getMediaForCurso(Long idCurso, Long idUsuario);
+
 }

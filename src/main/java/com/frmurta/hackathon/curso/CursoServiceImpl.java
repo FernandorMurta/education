@@ -7,6 +7,8 @@ import com.frmurta.hackathon.example.ExampleRepository;
 import com.frmurta.hackathon.example.ExampleService;
 import com.frmurta.hackathon.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,6 +53,10 @@ public class CursoServiceImpl extends AbstractService<Curso> implements CursoSer
 
         cursoParaPublicar.setPublicado(true);
         repository.save(cursoParaPublicar);
+    }
+
+    public Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable){
+        return repository.findByParams(cursoParams, pageable);
     }
 }
 

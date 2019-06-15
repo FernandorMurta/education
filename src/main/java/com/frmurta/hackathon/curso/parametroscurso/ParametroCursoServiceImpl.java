@@ -4,6 +4,7 @@ import com.frmurta.hackathon.abstracoes.AbstractService;
 import com.frmurta.hackathon.example.Example;
 import com.frmurta.hackathon.example.ExampleRepository;
 import com.frmurta.hackathon.example.ExampleService;
+import com.querydsl.core.types.dsl.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,10 @@ public class ParametroCursoServiceImpl extends AbstractService<ParametroCurso> i
     public ParametroCursoServiceImpl(ParametroCursoRepository repository) {
         super(repository);
         this.repository = repository;
+    }
+
+    public ParametroCurso createParametroCurso(ParametroCurso parametroCurso){
+        return repository.saveAndFlush(parametroCurso);
     }
 }
 

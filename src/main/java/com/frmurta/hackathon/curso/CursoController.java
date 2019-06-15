@@ -97,4 +97,13 @@ public class CursoController extends AbstractCtrl<Curso> {
         }
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity getById(@PathVariable(name = "id") Long id){
+        try {
+            return ControllerUtils.sendOk(service.getById(id));
+        } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
+
 }

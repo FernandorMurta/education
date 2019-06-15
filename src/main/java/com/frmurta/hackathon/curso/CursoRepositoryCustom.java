@@ -12,4 +12,6 @@ public interface CursoRepositoryCustom {
     Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable);
 
     List<CursoDTO> getAllPublished();
+
+    CursoDTO getById(Long id);
 }

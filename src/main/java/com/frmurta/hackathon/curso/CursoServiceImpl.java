@@ -73,5 +73,9 @@ public class CursoServiceImpl extends AbstractService<Curso> implements CursoSer
     public Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable){
         return repository.findByParams(cursoParams, pageable);
     }
+
+    public CursoDTO getById(Long id){
+        return repository.getById(id);
+    }
 }
 

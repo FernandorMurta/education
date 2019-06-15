@@ -63,6 +63,16 @@ public class CursoRepositoryImpl extends QueryDslSupport implements CursoReposit
                 .fetch();
     }
 
+    public CursoDTO getById(Long id){
+        QCurso curso = QCurso.curso;
+
+        return getQuerydsl().createQuery()
+                .select(CursoDTO.userConstructorExpression(curso))
+                .from(curso)
+                .where(curso.id.eq(id))
+                .fetchFirst();
+    }
+
 }
 
 

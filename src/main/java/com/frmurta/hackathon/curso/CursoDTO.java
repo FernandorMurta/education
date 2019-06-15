@@ -24,19 +24,22 @@ public class CursoDTO extends AbstractDTO {
     public FaculdadeDTO faculdadeDTO;
     public AreaAtuacao areaAtuacao;
     public AreaAtuacaoDTO areaAtuacaoDTO;
+    public Boolean publicado;
 
     @Builder
     @QueryProjection
-    public CursoDTO(Long id, Boolean ativo, String name) {
+    public CursoDTO(Long id, Boolean ativo, String name, Boolean publicado) {
         super(id, ativo);
         this.name = name;
+        this.publicado = publicado;
     }
 
     public static ConstructorExpression<CursoDTO> constructorExpression(QCurso curso) {
         return new QCursoDTO(
                 curso.id,
                 curso.ativo,
-                curso.name
+                curso.name,
+                curso.publicado
         );
     }
 }

@@ -13,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
 
 @Data
 @EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
@@ -36,6 +37,15 @@ public class CursoDTO extends AbstractDTO {
         this.vestibular = vestibular;
     }
 
+    @Builder
+    @QueryProjection
+    public CursoDTO(Long id, Boolean ativo, String name, Boolean vestibular, Faculdade faculdade){
+        super(id, ativo);
+        this.name = name;
+        this.vestibular = vestibular;
+        this.faculdadeDTO = new FaculdadeDTO(faculdade);
+    }
+
     public static ConstructorExpression<CursoDTO> constructorExpression(QCurso curso) {
         return new QCursoDTO(
                 curso.id,
@@ -43,6 +53,16 @@ public class CursoDTO extends AbstractDTO {
                 curso.name,
                 curso.publicado,
                 curso.vestibular
+        );
+    }
+
+    public static ConstructorExpression<CursoDTO> userConstructorExpression(QCurso curso){
+        return new QCursoDTO(
+                curso.id,
+                curso.ativo,
+                curso.name,
+                curso.vestibular,
+                curso.faculdade
         );
     }
 }

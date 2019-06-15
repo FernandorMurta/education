@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.ldap.Control;
 import javax.swing.text.html.Option;
+import java.lang.reflect.Executable;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,6 +84,15 @@ public class CursoController extends AbstractCtrl<Curso> {
         try {
             return ControllerUtils.sendOk(service.findByParams(cursoParams, pageable));
         } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
+
+    @GetMapping(path = "/getAll")
+    public ResponseEntity getAllPublished(){
+        try {
+            return ControllerUtils.sendOk(service.getAllPublished());
+        } catch (Exception e) {
             return ControllerUtils.sendBadRequest(e.getMessage());
         }
     }

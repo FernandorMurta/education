@@ -19,4 +19,6 @@ public interface CursoService extends IBaseService<Curso> {
 
     void vestibularCurso(Long id);
 
+    List<CursoDTO> getAllPublished();
 }
+

@@ -10,4 +10,6 @@ public interface CursoRepositoryCustom {
     List<CursoDTO> getAllByFaculdade(Long idFaculdade);
 
     Page<CursoDTO> findByParams(CursoParams cursoParams, Pageable pageable);
+
+    List<CursoDTO> getAllPublished();
 }

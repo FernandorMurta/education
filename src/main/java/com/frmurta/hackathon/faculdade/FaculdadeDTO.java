@@ -28,6 +28,11 @@ public class FaculdadeDTO extends AbstractDTO {
         this.password = password;
     }
 
+    public FaculdadeDTO(Faculdade faculdade){
+        super(faculdade.getId(), faculdade.getAtivo());
+        this.name = faculdade.getName();
+    }
+
     public static ConstructorExpression<FaculdadeDTO> constructorExpression(QFaculdade faculdade) {
         return new QFaculdadeDTO(
                 faculdade.id,

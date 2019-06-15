@@ -55,6 +55,10 @@ public class CursoServiceImpl extends AbstractService<Curso> implements CursoSer
         repository.save(cursoParaPublicar);
     }
 
+    public List<CursoDTO> getAllPublished(){
+        return repository.getAllPublished();
+    }
+
     public void vestibularCurso(Long id){
         Curso cursoParaVestibular = repository.getOne(id);
 

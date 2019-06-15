@@ -53,6 +53,15 @@ public class CursoRepositoryImpl extends QueryDslSupport implements CursoReposit
         return readPage((JPAQuery) query, pageable);
     }
 
+    public List<CursoDTO> getAllPublished(){
+        QCurso curso = QCurso.curso;
+
+        return getQuerydsl().createQuery()
+                .select(CursoDTO.userConstructorExpression(curso))
+                .from(curso)
+                .where(curso.publicado.isTrue())
+                .fetch();
+    }
 
 }
 

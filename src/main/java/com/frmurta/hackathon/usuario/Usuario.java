@@ -32,3 +32,4 @@ public class Usuario extends AbstractEntity {
         this.password = password;
     }
 }
+

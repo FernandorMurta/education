@@ -21,6 +21,7 @@ import org.springframework.data.jpa.repository.Query;
 public class CursoDTO extends AbstractDTO {
 
     public  String name;
+    public String descricao;
     public Faculdade faculdade;
     public FaculdadeDTO faculdadeDTO;
     public AreaAtuacao areaAtuacao;
@@ -39,11 +40,12 @@ public class CursoDTO extends AbstractDTO {
 
     @Builder
     @QueryProjection
-    public CursoDTO(Long id, Boolean ativo, String name, Boolean vestibular, Faculdade faculdade){
+    public CursoDTO(Long id, Boolean ativo, String name, String descricao, Boolean vestibular, Faculdade faculdade){
         super(id, ativo);
         this.name = name;
         this.vestibular = vestibular;
         this.faculdadeDTO = new FaculdadeDTO(faculdade);
+        this.descricao = descricao;
     }
 
     public static ConstructorExpression<CursoDTO> constructorExpression(QCurso curso) {
@@ -61,6 +63,7 @@ public class CursoDTO extends AbstractDTO {
                 curso.id,
                 curso.ativo,
                 curso.name,
+                curso.descricao,
                 curso.vestibular,
                 curso.faculdade
         );

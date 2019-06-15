@@ -24,6 +24,8 @@ public class Curso extends AbstractEntity {
     @NotNull
     private String name;
 
+    private String descricao;
+
     @NotNull
     @ManyToOne
     private Faculdade faculdade;
@@ -41,9 +43,10 @@ public class Curso extends AbstractEntity {
 
 
     @Builder
-    public Curso(Long id, Boolean ativo, String name, Faculdade faculdade, AreaAtuacao areaAtuacao, Boolean publicado, Boolean vestibular){
+    public Curso(Long id, Boolean ativo, String name, String descricao, Faculdade faculdade, AreaAtuacao areaAtuacao, Boolean publicado, Boolean vestibular){
         super(id, ativo);
         this.name = name;
+        this.descricao = descricao;
         this.faculdade = faculdade;
         this.areaAtuacao = areaAtuacao;
         this.publicado = publicado;

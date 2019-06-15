@@ -24,6 +24,7 @@ public class UsuarioDTO extends AbstractDTO {
     public String email;
 
     public Double valorMedio;
+    public String bonificacao;
 
     @Builder
     @QueryProjection
@@ -41,10 +42,9 @@ public class UsuarioDTO extends AbstractDTO {
                 .getAsDouble();
     }
 
-    public UsuarioDTO(Double totalPeso, Double totalAluno){
-
-        BigDecimal total = new BigDecimal(totalAluno).divide(new BigDecimal(totalPeso),2, RoundingMode.UP);
+    public UsuarioDTO(BigDecimal total, String bonificacao){
         this.valorMedio = total.doubleValue();
+        this.bonificacao = bonificacao;
     }
 
     public static ConstructorExpression<UsuarioDTO> constructorExpression(QUsuario usuario) {

@@ -40,7 +40,7 @@ public class CursoRepositoryImpl extends QueryDslSupport implements CursoReposit
 
         if(params.getName().isPresent()){
             String name = params.getName().get();
-            conditions.and(RepositoryUtils.getStringContainsIgnoreCaseAndAccents(curso.name, name));
+            conditions.and(curso.name.containsIgnoreCase(name));
         }
 
 

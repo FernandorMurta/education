@@ -5,6 +5,7 @@ import com.frmurta.hackathon.curso.materiacurso.MateriaCursoRepository;
 import com.frmurta.hackathon.example.Example;
 import com.frmurta.hackathon.example.ExampleRepository;
 import com.frmurta.hackathon.example.ExampleService;
+import com.frmurta.hackathon.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,17 @@ public class CursoServiceImpl extends AbstractService<Curso> implements CursoSer
 
     public List<CursoDTO> getAllByFaculdade(Long idFaculdade){
         return repository.getAllByFaculdade(idFaculdade);
+    }
+
+    public void publishCurso(Long id){
+        Curso cursoParaPublicar = repository.getOne(id);
+
+        if(cursoParaPublicar == null){
+            throw new CustomException("Curso nao encontrado");
+        }
+
+        cursoParaPublicar.setPublicado(true);
+        repository.save(cursoParaPublicar);
     }
 }
 

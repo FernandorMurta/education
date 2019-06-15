@@ -10,4 +10,6 @@ public interface CursoService extends IBaseService<Curso> {
     Curso createCurso (Curso curso);
 
     List<CursoDTO> getAllByFaculdade(Long idFaculdade);
+
+    void publishCurso(Long id);
 }

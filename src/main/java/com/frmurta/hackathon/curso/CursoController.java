@@ -47,4 +47,14 @@ public class CursoController extends AbstractCtrl<Curso> {
         }
     }
 
+    @PutMapping(path = "/publicar/{id}")
+    public ResponseEntity publicarCurso(@PathVariable(name = "id")Long id){
+        try{
+            service.publishCurso(id);
+            return ControllerUtils.sendOk(true);
+        } catch (Exception e){
+            return ControllerUtils.sendBadRequest(e.getMessage());
+        }
+    }
+
 }

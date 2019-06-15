@@ -25,7 +25,13 @@ public class FaculdadeServiceImpl extends AbstractService<Faculdade> implements 
     }
 
     public Faculdade makeLogin(Faculdade entity){
-        return repository.makeLogin(entity);
+        Faculdade faculdadeLogada = repository.makeLogin(entity);
+
+        if(faculdadeLogada == null){
+            throw new CustomException("Usuario nao encontrado");
+        }
+
+        return faculdadeLogada;
     }
 }
 

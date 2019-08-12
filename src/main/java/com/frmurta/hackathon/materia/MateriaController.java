@@ -46,7 +46,7 @@ public class MateriaController extends AbstractCtrl<Materia> {
         }
     }
 
-    @GetMapping
+    @GetMapping("/teste")
     public ResponseEntity testeDeploy(){
         return ControllerUtils.sendOk("FUNCIONA ISSO SIM");
     }
